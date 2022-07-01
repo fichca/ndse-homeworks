@@ -1,0 +1,95 @@
+1 docker pull busybox
+
+Using default tag: latest
+latest: Pulling from library/busybox
+19d511225f94: Pull complete
+Digest: sha256:3614ca5eacf0a3a1bcc361c939202a974b4902b9334ff36eb29ffe9011aaad83
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+
+2 docker run --name pinger -it busybox ping -w 7 netology.ru
+
+PING netology.ru (188.114.98.173): 56 data bytes
+64 bytes from 188.114.98.173: seq=0 ttl=37 time=19.685 ms
+64 bytes from 188.114.98.173: seq=1 ttl=37 time=20.494 ms
+64 bytes from 188.114.98.173: seq=2 ttl=37 time=21.553 ms
+64 bytes from 188.114.98.173: seq=3 ttl=37 time=20.506 ms
+64 bytes from 188.114.98.173: seq=4 ttl=37 time=21.582 ms
+64 bytes from 188.114.98.173: seq=5 ttl=37 time=18.217 ms
+64 bytes from 188.114.98.173: seq=6 ttl=37 time=18.146 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 18.146/20.026/21.582 ms
+
+3 docker ps -a
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+2e9030b66fa6   busybox   "ping -w 7 netology.…"   32 seconds ago   Exited (0) 24 seconds ago             pinger
+
+4 docker logs pinger
+
+PING netology.ru (188.114.98.173): 56 data bytes
+64 bytes from 188.114.98.173: seq=0 ttl=37 time=19.685 ms
+64 bytes from 188.114.98.173: seq=1 ttl=37 time=20.494 ms
+64 bytes from 188.114.98.173: seq=2 ttl=37 time=21.553 ms
+64 bytes from 188.114.98.173: seq=3 ttl=37 time=20.506 ms
+64 bytes from 188.114.98.173: seq=4 ttl=37 time=21.582 ms
+64 bytes from 188.114.98.173: seq=5 ttl=37 time=18.217 ms
+64 bytes from 188.114.98.173: seq=6 ttl=37 time=18.146 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 18.146/20.026/21.582 ms
+
+5 docker start pinger
+
+pinger
+
+6 docker ps -a
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+2e9030b66fa6   busybox   "ping -w 7 netology.…"   2 minutes ago   Exited (0) 5 seconds ago             pinger
+
+
+7 docker logs pinger
+
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS                     PORTS     NAMES
+2e9030b66fa6   busybox   "ping -w 7 netology.…"   2 minutes ago   Exited (0) 5 seconds ago             pinger
+PS D:\progect\node\netology\block_one> docker logs pinger
+PING netology.ru (188.114.98.173): 56 data bytes
+64 bytes from 188.114.98.173: seq=0 ttl=37 time=19.685 ms
+64 bytes from 188.114.98.173: seq=1 ttl=37 time=20.494 ms
+64 bytes from 188.114.98.173: seq=2 ttl=37 time=21.553 ms
+64 bytes from 188.114.98.173: seq=3 ttl=37 time=20.506 ms
+64 bytes from 188.114.98.173: seq=4 ttl=37 time=21.582 ms
+64 bytes from 188.114.98.173: seq=5 ttl=37 time=18.217 ms
+64 bytes from 188.114.98.173: seq=6 ttl=37 time=18.146 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 18.146/20.026/21.582 ms
+PING netology.ru (188.114.98.173): 56 data bytes
+64 bytes from 188.114.98.173: seq=0 ttl=37 time=25.118 ms
+64 bytes from 188.114.98.173: seq=1 ttl=37 time=18.542 ms
+64 bytes from 188.114.98.173: seq=2 ttl=37 time=22.122 ms
+64 bytes from 188.114.98.173: seq=3 ttl=37 time=20.014 ms
+64 bytes from 188.114.98.173: seq=4 ttl=37 time=28.637 ms
+64 bytes from 188.114.98.173: seq=5 ttl=37 time=22.592 ms
+64 bytes from 188.114.98.173: seq=6 ttl=37 time=18.382 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 18.382/22.201/28.637 ms
+
+8 2 запусков команды, 14 количество отправленых запросов
+9 docker rm pinger
+
+pinger
+
+10 docker rmi busybox
+
+Untagged: busybox:latest
+Untagged: busybox@sha256:3614ca5eacf0a3a1bcc361c939202a974b4902b9334ff36eb29ffe9011aaad83
+Deleted: sha256:62aedd01bd8520c43d06b09f7a0f67ba9720bdc04631a8242c65ea995f3ecac8
+Deleted: sha256:7ad00cd55506625f2afad262de6002c8cef20d214b353e51d1025e40e8646e18
