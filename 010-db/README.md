@@ -1,3 +1,39 @@
+- запрос(ы) для *вставки* данных минимум о двух книгах в коллекцию **books**
+
+db.books.insertMany([
+{
+title: "title1",
+description: "description1",
+authors: "author1"
+},
+{
+title: "title2",
+description: "description2",
+authors: "author2"
+},
+{
+title: "title3",
+description: "description3",
+authors: "author3"
+}
+]);
+
+- запрос для *поиска* полей документов коллекции **books** по полю *title*
+
+db.books.find({title: "title3"})
+
+- запрос для *редактирования* полей: *description* и *authors* коллекции **books** по *_id* записи
+
+db.books.updateOne(
+{_id : ObjectId("62d6df4336333fd9b160010d")},
+{
+$set: {
+description: "description1.2",
+authors: "author1.2"
+}
+}
+)
+
 # Домашнее задание к занятию «2.5 База данных и хранение данных»
 
 **Правила выполнения домашней работы:** 
@@ -26,3 +62,4 @@
   authors: "string"
 }
 ``` 
+
