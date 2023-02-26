@@ -1,0 +1,25 @@
+{
+  "name": "006-express",
+  "version": "1.0.0",
+  "description": "Домашнее задание к занятию «2.1 Express»",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon -r dotenv/config index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fichca/ndse-homeworks.git"
+  },
+  "author": "pilip.liatkouski@gmail.com",
+  "license": "ISC",
+  "homepage": "https://github.com/fichca/ndse-homeworks#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "uuid": "^8.3.2"
+  }
+}
